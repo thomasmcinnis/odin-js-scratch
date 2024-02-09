@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Resources</a>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Case studies</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">More</a>
+                    <ul>
+                        <li><a href="#">Investors</a></li>
+                        <li><a href="#">Work for us</a></li>
+                        <li><a href="#">About us</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <script>
+            const dropdownToggle = document.querySelectorAll('.dropdown');
+
+            function handleEnter() {
+                if (this.classList.contains('show')) return;
+                this.classList.add('show');
+            }
+
+            function handleExit() {
+                if (!this.classList.contains('show')) return;
+                this.classList.remove('show');
+            }
+
+            dropdownToggle.forEach((el) => {
+                el.addEventListener('mouseenter', handleEnter);
+                el.addEventListener('mouseleave', handleExit);
+            });
+        </script>
+    </body>
+</html>
