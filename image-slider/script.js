@@ -8,12 +8,12 @@ const slides = document.querySelector('.slides');
 const images = document.querySelectorAll('.slides img');
 
 // accumulate an array of x translation positions
-let positions = [0];
-for (let i = 0; i < images.length - 1; i++) {
-    let val = positions[i];
-    val -= slides.offsetWidth;
+let positions = [];
+
+images.forEach((el, i) => {
+    let val = -i * 100;
     positions.push(val);
-}
+});
 
 function handleClick(event) {
     const eventTargetAction = event.target.closest('[data-action]');
@@ -34,7 +34,7 @@ function handleClick(event) {
     }
 
     // update the transform on the slides div with the new Oth value
-    slides.style.transform = `translateX(${positions[0]}px)`;
+    slides.style.transform = `translateX(${positions[0]}%)`;
 }
 
 document.addEventListener('click', handleClick);
